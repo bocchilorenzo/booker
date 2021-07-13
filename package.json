@@ -16,6 +16,9 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "libgen": "^2.1.0",
+    "quagga": "^0.12.1",
+    "sanitize-filename": "^1.6.3",
     "sirv-cli": "^1.0.0"
   }
 }
