@@ -37,11 +37,14 @@ async function search(settings) {
                     title: data[n].title,
                     author: data[n].author,
                     mirrors: ["https://libgen.is", "http://gen.lib.rus.ec"],
-                    coverBase: "http://library.lol",
                     link: "/book/index.php?md5=" + data[n].md5.toLowerCase(),
-                    cover: "/covers/" + coverId + "/" + data[n].md5.toLowerCase()
+                    cover: "/covers/" + data[n].coverurl,
+                    extension: data[n].extension,
+                    size: data[n].filesize,
+                    language: data[n].language,
+                    pages: data[n].pages,
+                    year: data[n].year
                 })
-                parseInt(coverId) >= 500000 ? toRtn.results[toRtn.results.length - 1].cover += "-g.jpg" : toRtn.results[toRtn.results.length - 1].cover += ".jpg"
             }
         }
         return toRtn
@@ -52,6 +55,6 @@ async function search(settings) {
 
 module.exports = async (req, res) => {
     options.query = sanitize(req.query.q)
-    let results = await search(options)
-    res.status(200).send({ results });
+    let result = await search(options)
+    res.status(200).send(result);
 };
