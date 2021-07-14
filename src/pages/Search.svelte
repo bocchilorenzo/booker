@@ -15,7 +15,7 @@
   let books = {}
   let bookTitle = ""
   onMount(async () => {
-    books = await fetch("/api/search?q=" + queryParams.q).then((x) => x.json())
+    books = await fetch("https://booker-libgen.herokuapp.com/search?q=" + queryParams.q).then((x) => x.json())
     wait = false
   })
 

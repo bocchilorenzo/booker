@@ -168,7 +168,6 @@
   }
 
   .glow-blue-300-md {
-    /* For each color (blue-100 here), for each sizes (styles) from `md`, `lg`, `xl` and `2xl`. */
     box-shadow: 0 0px 8px -1px #93c5fd, 0 0px 6px -1px #93c5fd;
   }
 </style>
