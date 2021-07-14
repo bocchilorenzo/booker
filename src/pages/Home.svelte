@@ -121,14 +121,21 @@
 <main class="mx-2 flex items-center justify-center flex-col h-screen">
   {#if !cameraOn}
     <header class="mb-10">
-      <h1 class="text-blue-400 font-bold text-3xl text-center">Booker</h1>
+      <div class="text-blue-400 flex content-center items-center justify-center">
+        <svg class="fill-current w-8 h-8 mr-2" viewBox="0 0 24 24">
+          <path
+            d="M21,4H3A2,2 0 0,0 1,6V19A2,2 0 0,0 3,21H21A2,2 0 0,0 23,19V6A2,2 0 0,0 21,4M3,19V6H11V19H3M21,19H13V6H21V19M14,9.5H20V11H14V9.5M14,12H20V13.5H14V12M14,14.5H20V16H14V14.5Z"
+          />
+        </svg>
+        <h1 class="font-bold text-3xl text-center">Booker</h1>
+      </div>
       <h2 class="text-white text-lg text-center">
         Find books on libgen by scanning their barcode
       </h2>
     </header>
     <button
       on:click={startProcess}
-      class="rounded-full w-40 h-40 border-8 border-blue-400 text-blue-400 font-bold text-3xl glow-blue-300-md mx-auto"
+      class="rounded-full w-32 h-32 border-8 border-blue-400 text-blue-400 font-bold text-2xl glow-blue-300-md mx-auto"
       id="scan"
     >
       START
