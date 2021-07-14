@@ -1,8 +1,8 @@
 <script>
   export let cardInfo = {
-      /*
+    /*
     id: "651300",
-    title: "PROVA",
+    title: "PROVA titolo lungo",
     author: "AUTORE",
     mirrors: ["https://libgen.is", "http://gen.lib.rus.ec"],
     link: "/book/index.php?md5=3728e3386289e22",
@@ -16,7 +16,7 @@
 </script>
 
 <div
-  class="cardCustom grid grid-cols-3 grid-rows-7 grid-flow-row max-w-xs mx-auto overflow-hidden rounded-lg bg-gray-700 m-4"
+  class="cardCustom grid grid-cols-3 grid-rows-7 grid-flow-row w-full overflow-hidden rounded-lg bg-gray-700"
 >
   <div class="col-span-3 row-span-1">
     <div class="flex align-bottom flex-col leading-none p-2 pt-4">

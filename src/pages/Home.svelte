@@ -110,10 +110,12 @@
     }
   }
 
+  /*
   function bypass() {
     //Quagga.stop()
-    navigate("/search?q=9780451527103", { replace: false })
+    navigate("/search?q=9780899663685", { replace: false })
   }
+  */
 </script>
 
 <main class="mx-2 flex items-center justify-center flex-col h-screen">
@@ -138,7 +140,9 @@
     <h1 class="text-xl text-center text-white">Frame the barcode</h1>
     <div id="showCamera" class="w-max mx-auto max-w-full" />
   {/if}
+  <!--
   <button on:click={bypass} class="text-white">Bypass</button>
+  -->
 </main>
 
 <style>
