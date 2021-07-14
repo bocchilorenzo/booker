@@ -4,8 +4,7 @@
   let error = ""
   let devices = []
 
-  let cameraOn = false,
-    waitQuagga = true
+  let cameraOn = false
 
   async function _populateCameraDevices() {
     let videoDevices = await Quagga.CameraAccess.enumerateVideoDevices(),
@@ -23,11 +22,10 @@
     cameraOn = true
     setTimeout(() => {
       initialize()
-    }, 100)
+    }, 50)
   }
 
   function initialize() {
-    waitQuagga = false
     Quagga.init(
       {
         inputStream: {
@@ -110,6 +108,10 @@
     }
   }
 
+  function goHome() {
+    Quagga.stop()
+    cameraOn = false
+  }
   /*
   function bypass() {
     //Quagga.stop()
@@ -118,10 +120,12 @@
   */
 </script>
 
-<main class="mx-2 flex items-center justify-center flex-col h-screen">
+<main class="mx-4 flex items-center justify-center flex-col h-screen">
   {#if !cameraOn}
     <header class="mb-10">
-      <div class="text-blue-400 flex content-center items-center justify-center">
+      <div
+        class="text-blue-400 flex content-center items-center justify-center"
+      >
         <svg class="fill-current w-8 h-8 mr-2" viewBox="0 0 24 24">
           <path
             d="M21,4H3A2,2 0 0,0 1,6V19A2,2 0 0,0 3,21H21A2,2 0 0,0 23,19V6A2,2 0 0,0 21,4M3,19V6H11V19H3M21,19H13V6H21V19M14,9.5H20V11H14V9.5M14,12H20V13.5H14V12M14,14.5H20V16H14V14.5Z"
@@ -141,9 +145,21 @@
       START
     </button>
   {:else}
-    {#if waitQuagga}
-      <h1 class="text-xl text-center text-white">PLEASE WAIT...</h1>
-    {/if}
+    <button
+      class="text-blue-400 p-2 rounded hover:bg-gray-800 flex items-center content-center pr-5 mx-4 mt-2 z-10 absolute top-0 left-0"
+      on:click={() => goHome()}
+    >
+      <svg
+        style="width:24px;height:24px"
+        class="fill-current"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+        />
+      </svg>
+      HOME
+    </button>
     <h1 class="text-xl text-center text-white">Frame the barcode</h1>
     <div id="showCamera" class="w-max mx-auto max-w-full" />
   {/if}

@@ -15,7 +15,9 @@
   let books = {}
   let bookTitle = ""
   onMount(async () => {
-    books = await fetch("https://booker-libgen.herokuapp.com/search?q=" + queryParams.q).then((x) => x.json())
+    books = await fetch(
+      "https://booker-libgen.herokuapp.com/search?q=" + queryParams.q
+    ).then((x) => x.json())
     wait = false
   })
 
@@ -30,12 +32,14 @@
 
 <main class="relative pt-14">
   {#if wait}
-    <div class="absolute top-0 w-full min-h-screen flex flex-col items-center justify-center">
+    <div
+      class="absolute top-0 left-0 min-h-screen flex flex-col items-center justify-center mx-4"
+    >
       <div
-        class="flex content-center items-center justify-center text-white text-2xl mx-auto w-max mx-4 text center flex-wrap"
+        class="flex content-center items-center justify-center text-white text-2xl mx-auto text-center flex-wrap"
       >
         <svg
-          class="animate-spin mr-3 h-10 w-10 text-white"
+          class="animate-spin mr-3 h-8 w-8 text-white"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -56,7 +60,9 @@
         </svg>
         SEARCHING...
       </div>
-      <h2 class="text-white mt-4 text-center"><i>Usually takes around 20s, please wait</i></h2>
+      <h2 class="text-white mt-4 text-center">
+        <i>Usually takes around 20s, please wait</i>
+      </h2>
     </div>
   {:else}
     <button
@@ -84,10 +90,10 @@
       </div>
     {:else}
       <div
-        class="absolute top-0 w-full min-h-screen flex items-center justify-center flex-col"
+        class="absolute top-0 w-full min-h-screen flex items-center justify-center flex-col px-4"
       >
         <div
-          class="flex content-center items-center justify-center text-white text-2xl mx-auto w-max mx-4 text center flex-wrap"
+          class="flex content-center items-center justify-center text-white text-2xl text-center flex-wrap"
         >
           <svg
             class="mr-3 h-10 w-10 text-white fill-current"
@@ -98,55 +104,25 @@
               d="M11,15H13V17H11V15M11,7H13V13H11V7M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20Z"
             />
           </svg>
-          BOOK NOT FOUND
+          <span>BOOK NOT FOUND</span>
         </div>
         <div class="mt-10">
           <h3 class="text-lg text-white text-center">
             Try searching manually:
           </h3>
-          <div class="relative h-10 input-component empty mt-6">
+          <div class="relative h-10 input-component mt-6">
             <input
               id="bookTitle"
               type="text"
               name="bookTitle"
+              placeholder="Title"
               bind:value={bookTitle}
               on:keydown={manualSearch}
-              class="h-full w-full border-2 px-2 transition-all border-blue-400 focus:ring-1 focus:ring-blue-400 rounded-md focus:outline-none ring-offset-2"
+              class="h-full w-full border-2 px-2 transition-all border-blue-400 focus:ring-1 focus:ring-blue-400 rounded-md focus:outline-none ring-offset-2 focus:outline-none"
             />
-            <label
-              for="bookTitle"
-              class="absolute left-2 transition-all bg-transparent px-1"
-            >
-              Title
-            </label>
           </div>
         </div>
       </div>
     {/if}
   {/if}
 </main>
-
-<style>
-  label {
-    top: 0%;
-    transform: translateY(-110%);
-    font-size: 11px;
-    color: rgba(37, 99, 235, 1);
-    font-weight: bold;
-  }
-  .empty input:not(:focus) + label {
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 14px;
-  }
-  input:not(:focus) + label {
-    color: rgba(70, 70, 70, 1);
-  }
-  input {
-    border-width: 1px;
-  }
-  input:focus {
-    outline: none;
-    border-color: rgba(37, 99, 235, 1);
-  }
-</style>
