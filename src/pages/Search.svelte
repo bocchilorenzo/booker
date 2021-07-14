@@ -30,7 +30,7 @@
 
 <main class="relative pt-14">
   {#if wait}
-    <div class="absolute top-0 w-full min-h-screen flex items-center justify-center">
+    <div class="absolute top-0 w-full min-h-screen flex flex-col items-center justify-center">
       <div
         class="flex content-center items-center justify-center text-white text-2xl mx-auto w-max mx-4 text center flex-wrap"
       >
@@ -56,6 +56,7 @@
         </svg>
         SEARCHING...
       </div>
+      <h2 class="text-white mt-4 text-center"><i>Usually takes around 20s, please wait</i></h2>
     </div>
   {:else}
     <button
