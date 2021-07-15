@@ -7,7 +7,7 @@ Find books on Libgen by scanning their barcode. Use with your phone for a better
 ```
 This web app (Booker) or it's authors do not host or directly link to any pirated content.
 
-Any of the links mentioned by this web app (Raven) or it's authors are purely for reference use.
+Any of the links mentioned by this web app (Booker) or it's authors are purely for reference use.
 
 This web app (Booker) or it's authors do not support use of any form of piracy.
 
