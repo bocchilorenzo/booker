@@ -4,7 +4,8 @@
   let error = ""
   let devices = []
 
-  let cameraOn = false
+  let cameraOn = false,
+    removeThumbnail = false
 
   async function _populateCameraDevices() {
     let videoDevices = await Quagga.CameraAccess.enumerateVideoDevices(),
@@ -61,6 +62,7 @@
     Quagga.onDetected((result) => {
       let foundEan = result.codeResult.code
       Quagga.stop()
+      removeThumbnail = true
       navigate("/search?q=" + foundEan, { replace: false })
     })
 
@@ -161,7 +163,9 @@
       HOME
     </button>
     <h1 class="text-xl text-center text-white">Frame the barcode</h1>
-    <div id="showCamera" class="w-max mx-auto max-w-full" />
+    {#if !removeThumbnail}
+      <div id="showCamera" class="w-max mx-auto max-w-full" />
+    {/if}
   {/if}
   <!--
   <button on:click={bypass} class="text-white">Bypass</button>
