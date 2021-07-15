@@ -1,5 +1,4 @@
 <script>
-  import { onMount } from "svelte"
   import queryString from "query-string"
   import { useNavigate } from "svelte-navigator"
 
@@ -14,26 +13,32 @@
   let wait = true
   let books = {}
   let bookTitle = ""
-  onMount(async () => {
+
+  $: if (queryParams.q) {
+    getBooks()
+  }
+
+  async function getBooks() {
     books = await fetch(
       "https://booker-libgen.herokuapp.com/search?q=" + queryParams.q
     ).then((x) => x.json())
+    console.log("ci arrivo")
     wait = false
-  })
+  }
 
   function manualSearch(event) {
-    setTimeout(() => {
-      if (event.key == "Enter" && bookTitle != "" && bookTitle.length >= 3) {
-        navigate("/search?q=" + bookTitle, { replace: true })
-      }
-    }, 50)
+    if (event.key == "Enter" && bookTitle != "" && bookTitle.length >= 3) {
+      navigate("/search?q=" + bookTitle, { replace: true })
+      wait = true
+      books = {}
+    }
   }
 </script>
 
 <main class="relative pt-14">
   {#if wait}
     <div
-      class="absolute top-0 left-0 min-h-screen flex flex-col items-center justify-center mx-4"
+      class="min-h-screen w-auto flex flex-col items-center justify-center mx-auto -mt-14"
     >
       <div
         class="flex content-center items-center justify-center text-white text-2xl mx-auto text-center flex-wrap"
@@ -61,7 +66,8 @@
         SEARCHING...
       </div>
       <h2 class="text-white mt-4 text-center">
-        <i>Usually takes around 20s, please wait</i>
+        <i>It may take around 20s (more if Heroku is sleeping), please wait</i
+        >
       </h2>
     </div>
   {:else}
@@ -112,12 +118,13 @@
           </h3>
           <div class="relative h-10 input-component mt-6">
             <input
+              tabindex="0"
               id="bookTitle"
               type="text"
               name="bookTitle"
               placeholder="Title"
               bind:value={bookTitle}
-              on:keydown={manualSearch}
+              on:keyup={manualSearch}
               class="h-full w-full border-2 px-2 transition-all border-blue-400 focus:ring-1 focus:ring-blue-400 rounded-md focus:outline-none ring-offset-2 focus:outline-none"
             />
           </div>

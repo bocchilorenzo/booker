@@ -63,7 +63,9 @@
       let foundEan = result.codeResult.code
       Quagga.stop()
       removeThumbnail = true
-      navigate("/search?q=" + foundEan, { replace: false })
+      setTimeout(() => {
+        navigate("/search?q=" + foundEan, { replace: false })
+      }, 50)
     })
 
     Quagga.onProcessed(function (result) {
