@@ -65,9 +65,10 @@
         </svg>
         SEARCHING...
       </div>
-      <h2 class="text-white mt-4 text-center">
-        <i>It may take around 20s (more if Heroku is sleeping), please wait</i
-        >
+      <h2 class="text-white mt-4 text-center focus:outline-none">
+        <i>
+          It may take around 20s (more if Heroku is sleeping), please wait
+        </i>
       </h2>
     </div>
   {:else}

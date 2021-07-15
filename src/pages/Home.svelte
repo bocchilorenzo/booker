@@ -135,7 +135,7 @@
             d="M21,4H3A2,2 0 0,0 1,6V19A2,2 0 0,0 3,21H21A2,2 0 0,0 23,19V6A2,2 0 0,0 21,4M3,19V6H11V19H3M21,19H13V6H21V19M14,9.5H20V11H14V9.5M14,12H20V13.5H14V12M14,14.5H20V16H14V14.5Z"
           />
         </svg>
-        <h1 class="font-bold text-3xl text-center">Booker</h1>
+        <h1 class="font-bold text-3xl text-center focus:outline-none">Booker</h1>
       </div>
       <h2 class="text-white text-lg text-center">
         Find books on libgen by scanning their barcode
@@ -143,8 +143,9 @@
     </header>
     <button
       on:click={startProcess}
-      class="rounded-full w-32 h-32 border-8 border-blue-400 text-blue-400 font-bold text-2xl glow-blue-300-md mx-auto"
+      class="rounded-full w-32 h-32 border-8 border-blue-400 text-blue-400 font-bold text-2xl glow-blue-300-md mx-auto focus:outline-none"
       id="scan"
+      tabindex="0"
     >
       START
     </button>
