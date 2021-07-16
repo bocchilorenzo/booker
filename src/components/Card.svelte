@@ -16,23 +16,23 @@
 </script>
 
 <div
-  class="cardCustom grid grid-cols-3 w-full overflow-hidden rounded-lg bg-gray-700"
+  class="grid grid-cols-3 w-full overflow-hidden rounded-lg bg-gray-700"
 >
-  <div class="col-span-3">
-    <h2 class="text-md text-gray-200 px-2 sm:p-2 pt-4">
+  <div class="col-span-3 roboto">
+    <h2 class="text-md text-gray-200 px-2 sm:p-2 pt-4 overflow-ellipsis">
       {cardInfo.author}
     </h2>
   </div>
 
   <div class="col-span-3">
     <div class="leading-tight px-2 sm:p-2">
-      <h1 class="text-lg font-bold text-white">
+      <h1 class="text-lg font-bold text-white overflow-ellipsis">
         {cardInfo.title}
       </h1>
     </div>
   </div>
 
-  <div class="col-span-3">
+  <div class="col-span-3 roboto">
     <div class="leading-tight px-2 sm:p-2">
       <p class="text-gray-200 text-sm">
         {cardInfo.year}, {cardInfo.pages} pages, {cardInfo.extension}, {cardInfo.language},
@@ -43,7 +43,7 @@
     </div>
   </div>
 
-  <div class="col-span-3">
+  <div class="col-span-3 roboto">
     <div class="leading-tight p-2">
       <div class="flow-root">
         <a
@@ -59,7 +59,7 @@
 </div>
 
 <style>
-  .cardCustom {
+  .roboto {
     font-family: "Roboto", sans-serif;
   }
 </style>

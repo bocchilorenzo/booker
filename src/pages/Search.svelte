@@ -65,15 +65,13 @@
         </svg>
         SEARCHING...
       </div>
-      <h2 class="text-white mt-4 text-center focus:outline-none">
-        <i>
-          It may take around 20s (more if Heroku is sleeping), please wait
-        </i>
+      <h2 class="text-white mt-4 text-center focus:outline-none roboto">
+        <i> It may take around 30s for the first request, please wait </i>
       </h2>
     </div>
   {:else}
     <button
-      class="text-blue-400 p-2 rounded hover:bg-gray-800 flex items-center content-center pr-5 mx-4 mt-2 z-10 absolute top-0 left-0"
+      class="text-blue-400 p-2 rounded hover:bg-gray-700 focus:outline-none flex items-center content-center pr-5 mx-4 mt-2 z-10 absolute top-0 left-0"
       on:click={() => navigate(-1)}
     >
       <svg
@@ -114,7 +112,7 @@
           <span>BOOK NOT FOUND</span>
         </div>
         <div class="mt-10">
-          <h3 class="text-lg text-white text-center">
+          <h3 class="text-lg text-white text-center roboto">
             Try searching manually:
           </h3>
           <div class="relative h-10 input-component mt-6">
@@ -134,3 +132,9 @@
     {/if}
   {/if}
 </main>
+
+<style>
+  .roboto {
+    font-family: "Roboto", sans-serif;
+  }
+</style>

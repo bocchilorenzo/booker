@@ -137,7 +137,7 @@
         </svg>
         <h1 class="font-bold text-3xl text-center focus:outline-none">Booker</h1>
       </div>
-      <h2 class="text-white text-lg text-center">
+      <h2 class="text-white text-lg text-center roboto">
         Find books on libgen by scanning their barcode
       </h2>
     </header>
@@ -151,7 +151,7 @@
     </button>
   {:else}
     <button
-      class="text-blue-400 p-2 rounded hover:bg-gray-800 flex items-center content-center pr-5 mx-4 mt-2 z-10 absolute top-0 left-0"
+      class="text-blue-400 p-2 rounded hover:bg-gray-700 focus:outline-none flex items-center content-center pr-5 mx-4 mt-2 z-10 absolute top-0 left-0"
       on:click={() => goHome()}
     >
       <svg
@@ -192,5 +192,9 @@
 
   .glow-blue-300-md {
     box-shadow: 0 0px 8px -1px #93c5fd, 0 0px 6px -1px #93c5fd;
+  }
+  
+  .roboto {
+    font-family: "Roboto", sans-serif;
   }
 </style>

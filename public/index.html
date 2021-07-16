@@ -31,7 +31,12 @@
 	<meta name="msapplication-TileColor" content="#2b5797">
 	<meta name="msapplication-config" content="images/icons/browserconfig.xml">
 	<meta name="theme-color" content="#60a5fa">
-
+	
+	<style>
+		.modal {
+			min-width: 90% !important;
+		}
+	</style>
 	<script type="module" src="https://cdn.jsdelivr.net/npm/@pwabuilder/pwainstall"></script>
 	<script defer src='/build/bundle.js'></script>
 </head>
@@ -40,6 +45,7 @@
 	<noscript>
 		<div style="color:white">Oops! Javascript required here! Allow it and try again!</div>
 	</noscript>
+	<!--
 	<script>
 		if ("serviceWorker" in navigator) {
 			window.addEventListener("load", () => {
@@ -49,6 +55,7 @@
 			});
 		}
 	</script>
+-->
 </body>
 
 </html>

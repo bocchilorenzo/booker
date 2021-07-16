@@ -2,6 +2,10 @@
 
 Find books on Libgen by scanning their barcode. Use with your phone for a better experience.
 
+### API
+
+https://github.com/bocchilorenzo/booker-api
+
 ### Disclaimer
 
 ```
@@ -11,5 +15,5 @@ Any of the links mentioned by this web app (Booker) or it's authors are purely f
 
 This web app (Booker) or it's authors do not support use of any form of piracy.
 
-This web app (Booker) is for educational purposes only and is not intended to support copyright infringement. I am not responsible for any misuse of this piece of code.
+This web app (Booker) is for educational purposes only and is not intended to support copyright infringement. I am not responsible for any misuse of this web app or its source code.
 ```
