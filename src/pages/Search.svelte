@@ -22,7 +22,6 @@
     books = await fetch(
       "https://booker-libgen.herokuapp.com/search?q=" + queryParams.q
     ).then((x) => x.json())
-    console.log("ci arrivo")
     wait = false
   }
 
@@ -71,8 +70,8 @@
     </div>
   {:else}
     <button
-      class="text-blue-400 p-2 rounded hover:bg-gray-700 focus:outline-none flex items-center content-center pr-5 mx-4 mt-2 z-10 absolute top-0 left-0"
-      on:click={() => navigate(-1)}
+      class="text-blue-400 p-2 rounded hover:bg-gray-700 focus:outline-none flex items-center content-center pr-4 mx-4 mt-2 z-10 absolute top-0 left-0"
+      on:click={() => navigate("/")}
     >
       <svg
         style="width:24px;height:24px"
@@ -80,7 +79,7 @@
         viewBox="0 0 24 24"
       >
         <path
-          d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+          d="M12 5.69L17 10.19V18H15V12H9V18H7V10.19L12 5.69M12 3L2 12H5V20H11V14H13V20H19V12H22L12 3Z"
         />
       </svg>
       HOME

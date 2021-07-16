@@ -11,7 +11,7 @@
 </script>
 
 <Router>
-  <main class="container mx-auto relative">
+  <main class="container mx-auto relative min-h-screen">
     <Route path="/" component={Home} />
     <Route path="search" component={Search} />
     <Modal bind:open={modal_open}>

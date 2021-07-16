@@ -9,7 +9,7 @@
 </script>
 
 <div
-  class="absolute bottom-0 flex justify-around content-center items-center text-white w-full p-2"
+  class="absolute bottom-0 flex justify-center gap-x-6 content-center items-center text-white w-full p-2 bg-black"
 >
   <button on:click={openModal} class="focus:outline-none">
     <svg

@@ -135,7 +135,9 @@
             d="M21,4H3A2,2 0 0,0 1,6V19A2,2 0 0,0 3,21H21A2,2 0 0,0 23,19V6A2,2 0 0,0 21,4M3,19V6H11V19H3M21,19H13V6H21V19M14,9.5H20V11H14V9.5M14,12H20V13.5H14V12M14,14.5H20V16H14V14.5Z"
           />
         </svg>
-        <h1 class="font-bold text-3xl text-center focus:outline-none">Booker</h1>
+        <h1 class="font-bold text-3xl text-center focus:outline-none">
+          Booker
+        </h1>
       </div>
       <h2 class="text-white text-lg text-center roboto">
         Find books on libgen by scanning their barcode
@@ -151,7 +153,7 @@
     </button>
   {:else}
     <button
-      class="text-blue-400 p-2 rounded hover:bg-gray-700 focus:outline-none flex items-center content-center pr-5 mx-4 mt-2 z-10 absolute top-0 left-0"
+      class="text-blue-400 p-2 rounded hover:bg-gray-700 focus:outline-none flex items-center content-center pr-4 mx-4 mt-2 z-10 absolute top-0 left-0"
       on:click={() => goHome()}
     >
       <svg
@@ -160,7 +162,7 @@
         viewBox="0 0 24 24"
       >
         <path
-          d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+          d="M12 5.69L17 10.19V18H15V12H9V18H7V10.19L12 5.69M12 3L2 12H5V20H11V14H13V20H19V12H22L12 3Z"
         />
       </svg>
       HOME
@@ -193,7 +195,7 @@
   .glow-blue-300-md {
     box-shadow: 0 0px 8px -1px #93c5fd, 0 0px 6px -1px #93c5fd;
   }
-  
+
   .roboto {
     font-family: "Roboto", sans-serif;
   }

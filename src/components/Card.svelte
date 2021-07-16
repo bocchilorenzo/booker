@@ -15,9 +15,7 @@
   }
 </script>
 
-<div
-  class="grid grid-cols-3 w-full overflow-hidden rounded-lg bg-gray-700"
->
+<div class="grid grid-cols-3 w-full overflow-hidden rounded-lg bg-gray-700">
   <div class="col-span-3 roboto">
     <h2 class="text-md text-gray-200 px-2 sm:p-2 pt-4 overflow-ellipsis">
       {cardInfo.author}
@@ -35,10 +33,15 @@
   <div class="col-span-3 roboto">
     <div class="leading-tight px-2 sm:p-2">
       <p class="text-gray-200 text-sm">
-        {cardInfo.year}, {cardInfo.pages} pages, {cardInfo.extension}, {cardInfo.language},
-        {Math.ceil(parseInt(cardInfo.size) * 0.0009765625) < 1000
-          ? Math.ceil(parseInt(cardInfo.size) * 0.0009765625) + " kB"
-          : Math.ceil(parseInt(cardInfo.size) * 0.00000095367432) + " MB"}
+        {cardInfo.year != "" ? cardInfo.year + ", " : ""}
+        {cardInfo.pages != "" ? cardInfo.pages + " pages, " : ""}
+        {cardInfo.extension != "" ? cardInfo.extension + ", " : ""}
+        {cardInfo.language != "" ? cardInfo.language + ", " : ""}
+        {cardInfo.size != ""
+          ? Math.ceil(parseInt(cardInfo.size) * 0.0009765625) < 1000
+            ? Math.ceil(parseInt(cardInfo.size) * 0.0009765625) + " kB"
+            : Math.ceil(parseInt(cardInfo.size) * 0.00000095367432) + " MB"
+          : ""}
       </p>
     </div>
   </div>
