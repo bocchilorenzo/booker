@@ -4,10 +4,14 @@
   import Search from "./pages/Search.svelte"
   import Footer from "./components/Footer.svelte"
   import { Modal } from "svelte-chota"
+  import { onMount } from "svelte"
   let modal_open = false
   function handleModal() {
     modal_open = !modal_open
   }
+  onMount(async () => {
+    await fetch("https://booker-libgen.herokuapp.com/wake")
+  })
 </script>
 
 <Router>
