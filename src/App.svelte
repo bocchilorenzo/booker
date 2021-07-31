@@ -5,18 +5,47 @@
   import Footer from "./components/Footer.svelte"
   import { Modal } from "svelte-chota"
   import { onMount } from "svelte"
-  let modal_open = false
+
+  let modal_open = false,
+    connected = false,
+    res,
+    show = true
+
   function handleModal() {
     modal_open = !modal_open
   }
   onMount(async () => {
-    await fetch("https://booker-libgen.herokuapp.com/wake")
+    res = await fetch("https://booker-libgen.herokuapp.com/wake").then((x) =>
+      x.json()
+    )
+    if (res.status == 200) {
+      connected = true
+      setTimeout(() => {
+        show = false
+      }, 4000)
+    }
   })
 </script>
 
 <Router>
   <main class="container mx-auto relative min-h-screen">
-    <Route path="/" component={Home} />
+    <Route path="/">
+      {#if show}
+        <div
+          class="mx-4 mt-2 absolute text-white flex content-center items-center gap-x-1 text-sm roboto"
+        >
+          <span
+            class={connected
+              ? "h-3 w-3 rounded-full cursor-pointer focus:outline-none bg-green-400"
+              : "h-3 w-3 rounded-full cursor-pointer focus:outline-none bg-yellow-400 animate-pulse"}
+          />
+          <span>
+            {connected ? "Connected" : "Connecting to the server"}
+          </span>
+        </div>
+      {/if}
+      <Home allow={connected} />
+    </Route>
     <Route path="search" component={Search} />
     <Modal bind:open={modal_open}>
       <div class="p-2 bg-gray-700 text-white">

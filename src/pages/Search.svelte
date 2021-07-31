@@ -64,9 +64,6 @@
         </svg>
         SEARCHING...
       </div>
-      <h2 class="text-white mt-4 text-center focus:outline-none roboto">
-        <i> It may take around 30s for the first request, please wait </i>
-      </h2>
     </div>
   {:else}
     <button

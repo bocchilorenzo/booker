@@ -1,11 +1,20 @@
 <script>
   import { navigate } from "svelte-navigator"
   import Quagga from "quagga"
-  let error = ""
-  let devices = []
+  let error = "",
+    devices = [],
+    cameraOn = false,
+    removeThumbnail = false,
+    showMsg = false
 
-  let cameraOn = false,
-    removeThumbnail = false
+  export let allow
+
+  function showWarning() {
+    showMsg = true
+    setTimeout(() => {
+      showMsg = false
+    }, 4000)
+  }
 
   async function _populateCameraDevices() {
     let videoDevices = await Quagga.CameraAccess.enumerateVideoDevices(),
@@ -20,10 +29,14 @@
   }
 
   function startProcess() {
-    cameraOn = true
-    setTimeout(() => {
-      initialize()
-    }, 50)
+    if (allow) {
+      cameraOn = true
+      setTimeout(() => {
+        initialize()
+      }, 50)
+    } else {
+      showWarning()
+    }
   }
 
   function initialize() {
@@ -151,6 +164,9 @@
     >
       START
     </button>
+    {#if showMsg}
+      <p class="text-yellow-400 mt-4 roboto">Wait for the server to be connected</p>
+    {/if}
   {:else}
     <button
       class="text-blue-400 p-2 rounded hover:bg-gray-700 focus:outline-none flex items-center content-center pr-4 mx-4 mt-2 z-10 absolute top-0 left-0"
