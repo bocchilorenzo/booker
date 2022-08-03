@@ -20,7 +20,7 @@
 
   async function getBooks() {
     books = await fetch(
-      "https://booker-libgen.herokuapp.com/search?q=" + queryParams.q
+      "https://booker-new.herokuapp.com/search?q=" + queryParams.q
     ).then((x) => x.json())
     wait = false
   }
