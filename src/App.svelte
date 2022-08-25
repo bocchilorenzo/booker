@@ -15,7 +15,7 @@
     modal_open = !modal_open
   }
   onMount(async () => {
-    res = await fetch("https://booker-new.herokuapp.com/wake").then((x) =>
+    res = await fetch("https://booker-api-x4dy.onrender.com/wake").then((x) =>
       x.json()
     )
     if (res.status == 200) {
